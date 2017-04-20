@@ -22,7 +22,7 @@ module.exports = {
       loader: 'babel',
       include: path.join(__dirname, 'src'),
       query: {
-        presets: [ 'es2015', 'react', 'react-hmre' ]
+        presets: [ 'es2015', 'react', 'react-hmre', "stage-2"] 
       }
     }, {
       test: /\.css$/,
