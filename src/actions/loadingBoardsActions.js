@@ -21,7 +21,7 @@ export function loadBoards() {
 export function loadLocalStorage() {
   return function(dispatch) {
     const localBoards = window.localStorage ? JSON.parse(window.localStorage.getItem("localBoards")) : "";
-    if(localBoards.length != null) {
+    if(localBoards) {
       const dataToPass = localBoards.length > 0 ? localBoards : defaultLocalData;
       if(!Array.isArray(dataToPass)) {
         dispatch({type: "LOAD_LOCAL_STORAGE",  payload: dataToPass});
