@@ -30,5 +30,10 @@ module.exports = {
   },
   resolve: {
     root: path.resolve('./src')
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify('production')}), // This tells the Webpack and Babel for optimization for performance
+    new webpack.optimize.UglifyJsPlugin(), //To minify js
+    new webpack.NoErrorsPlugin(), // Makes sure Webpack will not compile if Errors
+  ]
 };
