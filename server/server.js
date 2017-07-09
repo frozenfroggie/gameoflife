@@ -38,7 +38,7 @@ facebookAuth();
 googleAuth();
 
 //routing
-routes(app);
+routes(app); 
 
 //listening
 const port = process.env.PORT || 8080;
