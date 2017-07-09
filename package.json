@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Workspace for the Intro to React.js workshop",
   "scripts": {
+    "webpack": "webpack --progress --colors",
     "webpack-watch": "webpack --progress --colors --watch",
     "express-server": "nodemon ./server/server.js",
     "start": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
