@@ -10,7 +10,7 @@ import FontAwesome from 'react-fontawesome';
 import { setLoadedSquares } from "../actions/squaresActions";
 import { setDesirableFps } from "../actions/fpsActions";
 import { loadBoards, loadLocalStorage, clearEverything } from "../actions/loadingBoardsActions";
-import { disableEditName, changeInputName } from "../actions/editNameActions";
+import { disableEditName, changeInputName, editName } from "../actions/editNameActions";
 import { showHideStructures, showHideMenu } from "../actions/visibilityActions";
 
 let editNameInput;
@@ -148,7 +148,8 @@ const mapDispatchToprops = (dispatch) => {
       clearEverything: () => dispatch(clearEverything()),
       showHideMenu: (which) => dispatch(showHideMenu(which)),
       changeInputName: (name) => dispatch(changeInputName(name)),
-      disableEditName: () => dispatch(disableEditName())
+      disableEditName: () => dispatch(disableEditName()),
+      editName: (structure,i) => dispatch(editName(structure,i))
     };
 };
                         
