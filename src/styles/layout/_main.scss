@@ -1,0 +1,26 @@
+main {
+    width: 90%;
+    height: 86%; 
+    @include flexCenter;
+    .aboutCont {
+        position: relative;
+        border: 5px solid $mainColor;
+        width: 63%;
+        height: 82%; 
+        box-sizing: content-box;
+        border-radius: 10px;
+        background-color: rgba(200,200,200,0.1);
+        box-shadow: 3px 3px 9px 2px rgba(0,0,0,0.75);
+        padding: 35px 25px 20px;
+        overflow: auto;
+        .closeAbout {
+            position: absolute; 
+            top: 3px;
+            right: 3px;
+            color: $mainColor;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

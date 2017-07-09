@@ -1,0 +1,17 @@
+html
+  head
+    title Game of life
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    meta(name="description" content="")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css")
+    link(rel="stylesheet" href="./adminAuthSubpage/adminAuth.css")
+  body(style='background: url("https://images.pond5.com/worship-background-modern-edge-blue-footage-026057078_prevstill.jpeg") no-repeat center center fixed; background-size: cover;')
+    div.centerDiv
+      form.loginForm(action='/admin/login', method='post')
+        div
+          h3.centerText Administrator authentication
+        input(type='text', name='username', placeholder="Username")
+        input(type='password', name='password', placeholder="Password")
+        input(type='submit', value='Log In')

@@ -1,0 +1,76 @@
+body {
+    color: #ccc;
+}
+
+form {
+    padding: 25px 50px 35px;
+    border: 1px solid rgb(216,216,216);
+    border-radius: 4px;
+    background-color: rgba(10,10,10,0.8);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-box-align: center;
+    -moz-box-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-box-pack: center;
+    -moz-box-pack: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+input {
+    width: 320px;
+    height: 44px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: black;
+}
+
+input:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 7px #9ecaed;
+}
+
+input[type="submit"] {
+    background-color: rgb(50,50,50);
+    border: 1px solid rgb(50,50,50);
+    border: none;
+    color: white;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.centerDiv {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-box-align: center;
+    -moz-box-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-box-pack: center;
+    -moz-box-pack: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}

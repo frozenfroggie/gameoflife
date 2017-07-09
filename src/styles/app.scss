@@ -1,0 +1,37 @@
+@import "/helpers/mixins";
+@import "/helpers/variables";
+
+html, body, .app {
+  color: #ccc;
+  width: 100%;
+  height: 98%;
+  background: {
+    image: url($bgURL);
+    size: cover;
+  }
+}
+
+.container {
+  @extend .app;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    @include blur(3px);
+    background: {
+      image: url($bgURL);
+      size: cover;
+    }
+  }
+  @import "layout/savingWindow";
+  @import "layout/login";
+  @import "layout/nav";
+  @import "layout/main";
+  @import "layout/aside";
+  @import "layout/footer";
+}
+

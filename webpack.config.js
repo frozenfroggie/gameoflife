@@ -7,30 +7,31 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'normalize.css',
-    './src/styles/app.css',
-    'eventsource-polyfill', // necessary for hot reloading with IE
+    './src/styles/app.scss',
     './src/index'
   ],
   output: {
-    path: __dirname,
     filename: 'bundle.js',
-    publicPath: '/static/'
+    path: path.join(__dirname + '/public')
   },
   module: {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
-      include: path.join(__dirname, 'src'),
+      include: path.join(__dirname, '/src'),
       query: {
-        presets: [ 'es2015', 'react', 'react-hmre', "stage-2"] 
+        presets: [ 'es2015', 'react', "stage-2"] 
       }
     }, {
-      test: /\.css$/,
-      loaders: ['style', 'css'],
+      test: /\.s?css$/,
+      loaders: ['style', 'css',"sass"],
+    }, {
+      test: /\.json$/,
+      loader: "json"
     }]
   },
   resolve: {
-    root: path.resolve('./src'),
+    root: path.resolve('./src')
   },
   devServer: {
     port: port,
