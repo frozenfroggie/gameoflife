@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "Workspace for the Intro to React.js workshop",
   "scripts": {
-    "webpack": "webpack --progress --colors",
     "webpack-watch": "webpack --progress --colors --watch",
     "express-server": "nodemon ./server/server.js",
     "start": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
@@ -42,7 +41,6 @@
     "react-tools": "0.13.3",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0",
-    "webpack": "^1.5.0",
     "webpack-dev-server": "^1.4.5"
   },
   "dependencies": {
@@ -72,6 +70,7 @@
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack": "^1.5.0"
   }
 }
