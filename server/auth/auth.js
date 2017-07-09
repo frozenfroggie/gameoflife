@@ -12,6 +12,8 @@ module.exports = function(app) {
  
     app.use(session({
         store: new MongoStore({url: process.env.MONGO_URI}),
+        saveUninitialized: false, 
+        resave: false,
         secret: process.env.SESSION_SECRET
     }));
     app.use(passport.initialize());
