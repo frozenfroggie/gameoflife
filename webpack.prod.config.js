@@ -4,7 +4,7 @@ var port = process.env.PORT || 8080;
 var host = process.env.IP || '127.0.0.1';
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-source-map',
   entry: [
     'normalize.css',
     './src/styles/app.scss',
@@ -32,9 +32,5 @@ module.exports = {
   },
   resolve: {
     root: path.resolve('./src')
-  },
-  devServer: {
-    port: port,
-    host: host
   }
 };
