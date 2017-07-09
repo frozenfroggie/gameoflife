@@ -10,7 +10,7 @@
     "dev": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
     "mongo": "mongod --dbpath=/data --smallfiles",
     "tests": "mocha tests/*Test.js",
-    "prod": "NODE_ENV=production node ./server/server.js",
+    "prod": "NODE_ENV=production node server/server.js",
     "postinstall": "webpack --config webpack.prod.config.js -p --progress --colors", 
     "build": "webpack --config webpack.prod.config.js -p --progress --colors"
   },
