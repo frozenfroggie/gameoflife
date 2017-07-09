@@ -1,7 +1,5 @@
 var path = require('path');
-
-var port = process.env.PORT || 8080;
-var host = process.env.IP || '127.0.0.1';
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'inline-source-map', 
@@ -32,5 +30,15 @@ module.exports = {
   },
   resolve: {
     root: path.resolve('./src')
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        // This tells the Webpack and Babel for optimization for performance
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.NoErrorsPlugin(), // Makes sure Webpack will not compile if Errors
+  ]
 };
