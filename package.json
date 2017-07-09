@@ -4,9 +4,8 @@
   "version": "1.0.0",
   "description": "Workspace for the Intro to React.js workshop",
   "scripts": {
-    "webpack-watch": "webpack --progress --colors --watch",
+    "webpack-watch": "webpack --config webpack.dev.config.js --progress --colors --watch",
     "express-server": "nodemon ./server/server.js",
-    "start": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
     "dev": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
     "mongo": "mongod --dbpath=/data --smallfiles",
     "tests": "mocha tests/*Test.js",
