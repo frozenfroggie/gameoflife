@@ -21,13 +21,15 @@ export function loadBoards() {
 export function loadLocalStorage() {
   return function(dispatch) {
     const localBoards = window.localStorage ? JSON.parse(window.localStorage.getItem("localBoards")) : "";
-    const dataToPass = localBoards.length > 0 ? localBoards : defaultLocalData;
-    if(!Array.isArray(dataToPass)) {
-      dispatch({type: "LOAD_LOCAL_STORAGE",  payload: dataToPass});
-    } else {
-      dataToPass.forEach(board => dispatch({type: "LOAD_LOCAL_STORAGE",  payload: board}));
+    if(localBoards.length != null) {
+      const dataToPass = localBoards.length > 0 ? localBoards : defaultLocalData;
+      if(!Array.isArray(dataToPass)) {
+        dispatch({type: "LOAD_LOCAL_STORAGE",  payload: dataToPass});
+      } else {
+        dataToPass.forEach(board => dispatch({type: "LOAD_LOCAL_STORAGE",  payload: board}));
+      }
+      console.log('loaded successfully from local storage');
     }
-    console.log('loaded successfully from local storage');
   };
 }
 
