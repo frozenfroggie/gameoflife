@@ -12,8 +12,7 @@
     "tests": "mocha tests/*Test.js",
     "prod": "NODE_ENV=production node ./server/server.js",
     "postinstall": "webpack --config webpack.prod.config.js -p --progress --colors",
-    "build": "webpack --config webpack.prod.config.js -p --progress --colors",
-    "heroku-postbuild": "npm run build"
+    "build": "webpack --config webpack.prod.config.js -p --progress --colors"
   },
   "author": "frozenfroggie",
   "license": "MIT",
