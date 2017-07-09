@@ -20,7 +20,7 @@ class Structures extends React.Component {
     let data = {
       newName: editNameInput.value
     };
-    axios.put('https://gameoflife-using-redux-frozenfroggie.c9users.io/crud/update/' + id, data)
+    axios.put('https://enigmatic-island-38218.herokuapp.com/crud/update/' + id, data)
       .then( response => {
         console.log('updated successfully');
         this.props.resetStructures();
@@ -52,7 +52,7 @@ class Structures extends React.Component {
   }
   deleteStructure(id, structures, idx) {
     if(structures!=="local_storage") {
-      axios.delete('https://gameoflife-using-redux-frozenfroggie.c9users.io/crud/delete/' + id)
+      axios.delete('https://enigmatic-island-38218.herokuapp.com/crud/delete/' + id)
         .then( response => {
           console.log('deleted successfully from database');
         });
