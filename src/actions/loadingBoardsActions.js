@@ -4,7 +4,7 @@ const defaultLocalData = require('../../data/defaultLocalData.json');
 
 export function loadBoards() {
   return function(dispatch) {
-    axios.get("https://gameoflife-using-redux-frozenfroggie.c9users.io/crud/load")
+    axios.get("https://enigmatic-island-38218.herokuapp.com//crud/load")
       .then((response) => {
         $.map(response.data, function(board, index) {
           switch(board.structure) {
