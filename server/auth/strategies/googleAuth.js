@@ -8,7 +8,7 @@ module.exports = function() {
   passport.use(new GoogleStrategy({
       clientID: process.env.GOOGLE_APP_ID,
       clientSecret: process.env.GOOGLE_APP_SECRET,
-      callbackURL: "https://gameoflife-using-redux-frozenfroggie.c9users.io/auth/google/callback"
+      callbackURL: "https://enigmatic-island-38218.herokuapp.com/auth/google/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
       GoogleAuthModel.findOrCreate({ googleId: profile.id, profile: profile.displayName }, function (err, user) {

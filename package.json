@@ -6,6 +6,7 @@
   "scripts": {
     "webpack-watch": "webpack --progress --colors --watch",
     "express-server": "nodemon ./server/server.js",
+    "start": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
     "dev": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
     "mongo": "mongod --dbpath=/data --smallfiles",
     "tests": "mocha tests/*Test.js"
