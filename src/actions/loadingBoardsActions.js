@@ -21,7 +21,6 @@ export function loadBoards() {
 export function loadLocalStorage() {
   return function(dispatch) {
     const localBoards = window.localStorage ? JSON.parse(window.localStorage.getItem("localBoards")) : "";
-    if(localBoards) {
       const dataToPass = localBoards.length > 0 ? localBoards : defaultLocalData;
       if(!Array.isArray(dataToPass)) {
         dispatch({type: "LOAD_LOCAL_STORAGE",  payload: dataToPass});
@@ -29,7 +28,6 @@ export function loadLocalStorage() {
         dataToPass.forEach(board => dispatch({type: "LOAD_LOCAL_STORAGE",  payload: board}));
       }
       console.log('loaded successfully from local storage');
-    }
   };
 }
 
