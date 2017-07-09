@@ -9,7 +9,9 @@
     "start": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
     "dev": "concurrently --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
     "mongo": "mongod --dbpath=/data --smallfiles",
-    "tests": "mocha tests/*Test.js"
+    "tests": "mocha tests/*Test.js",
+    "prod": "NODE_ENV=production node server/server.js",
+  "build": "webpack --config webpack.prod.config.js -p --progress --colors"
   },
   "author": "frozenfroggie",
   "license": "MIT",
