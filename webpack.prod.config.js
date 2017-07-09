@@ -4,7 +4,7 @@ var port = process.env.PORT || 8080;
 var host = process.env.IP || '127.0.0.1';
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'inline-source-map', 
   entry: [
     'normalize.css',
     './src/styles/app.scss',
