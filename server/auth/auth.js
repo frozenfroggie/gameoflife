@@ -1,5 +1,6 @@
  //authentication
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const mongoose = require("mongoose");
 var LocalAuthModel = require('../models/localAuthModel.js');
@@ -10,9 +11,8 @@ var GoogleAuthModel = require('../models/googleAuthModel.js');
 module.exports = function(app) {
  
     app.use(session({
-      secret: process.env.SESSION_SECRET,
-      resave: true,
-      saveUninitialized: true,
+        store: new MongoStore({url: process.env.MONGO_URI}),
+        secret: process.env.SESSION_SECRET
     }));
     app.use(passport.initialize());
     app.use(passport.session());
