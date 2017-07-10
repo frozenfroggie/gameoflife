@@ -40,7 +40,7 @@ class App extends React.Component {
   componentDidMount = () => {
     this.props.loadLocalStorage();
     this.props.loadBoards();
-    axios.get('https://enigmatic-island-38218.herokuapp.com/authentication/')
+    axios.get('https://game-of-life-frozen.herokuapp.com/authentication/')
       .then( response => {
         response.data.adminAuth ? this.props.adminLogin(response.data.user) : response.data.userAuth ? this.props.userLogin(response.data.user) : "";
         console.log(response.data.user);
@@ -184,7 +184,7 @@ class App extends React.Component {
   }
   logout = () => {
     this.props.logout();
-    axios.post('https://enigmatic-island-38218.herokuapp.com/logout/')
+    axios.post('https://game-of-life-frozen.herokuapp.com/logout/')
         .then( response => console.log('logout'))
         .catch( error => error.response ? console.log(error.response) : '');
   }

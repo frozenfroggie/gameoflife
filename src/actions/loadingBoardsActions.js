@@ -4,7 +4,7 @@ const defaultLocalData = require('../../data/defaultLocalData.json');
 
 export function loadBoards() {
   return function(dispatch) {
-    axios.get("https://enigmatic-island-38218.herokuapp.com/crud/load")
+    axios.get("https://game-of-life-frozen.herokuapp.com/crud/load")
       .then((response) => {
         $.map(response.data, function(board, index) {
           switch(board.structure) {
@@ -21,13 +21,13 @@ export function loadBoards() {
 export function loadLocalStorage() {
   return function(dispatch) {
     const localBoards = window.localStorage ? JSON.parse(window.localStorage.getItem("localBoards")) : "";
-      const dataToPass = localBoards.length > 0 ? localBoards : defaultLocalData;
-      if(!Array.isArray(dataToPass)) {
-        dispatch({type: "LOAD_LOCAL_STORAGE",  payload: dataToPass});
-      } else {
-        dataToPass.forEach(board => dispatch({type: "LOAD_LOCAL_STORAGE",  payload: board}));
-      }
-      console.log('loaded successfully from local storage');
+    const dataToPass = localBoards && localBoards.length > 0 ? localBoards : defaultLocalData;
+    if(!Array.isArray(dataToPass)) {
+      dispatch({type: "LOAD_LOCAL_STORAGE",  payload: dataToPass});
+    } else {
+      dataToPass.forEach(board => dispatch({type: "LOAD_LOCAL_STORAGE",  payload: board}));
+    }
+    console.log('loaded successfully from local storage');
   };
 }
 

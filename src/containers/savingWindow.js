@@ -18,7 +18,7 @@ class SavingWindow extends React.Component {
         }
     }
     saveToDatabase = data => {
-         axios.post('https://gameoflife-using-redux-frozenfroggie.c9users.io/crud/save', data)
+         axios.post('https://game-of-life-frozen.herokuapp.com/crud/save', data)
                 .then( response => console.log('saved successfully'))
                 .catch(error => error.response ? console.log(error.response) : "");
     }

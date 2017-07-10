@@ -8,7 +8,7 @@ module.exports = function() {
     passport.use(new GitHubStrategy({
             clientID: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
-            callbackURL: "https://enigmatic-island-38218.herokuapp.com/auth/github/callback"
+            callbackURL: "https://game-of-life-frozen.herokuapp.com/auth/github/callback"
         },
         function(accessToken, refreshToken, profile, cb) {
             console.log(profile.displayName);
