@@ -13,6 +13,7 @@ const Board = function(props) {
     case 29: padding = 6; break;
     case 39: padding = 5; break;
     case 49: padding = 4; break;
+    case 59: padding = 3.5; break;
   }
   for(let i=0; i <= rows; i++) {              // Creates all lines:
       squares.push([]);                       // Creates an empty line
