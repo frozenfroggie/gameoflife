@@ -1,4 +1,4 @@
-const INITIAL_ROWS = 59, INITIAL_COLS = 69;
+const INITIAL_ROWS = 49, INITIAL_COLS = 59;
 
 function generateOrganismsInSquares(rows,cols) {    //only for initial squares state!
     let squares = [];
