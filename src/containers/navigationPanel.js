@@ -22,6 +22,7 @@ class NavigationPanel extends React.Component {
            <div className="tilesCont" onMouseOver={()=>this.props.showHideMenu(1)} onMouseOut={()=>this.props.showHideMenu(1)} >
             <div className="tiles">Board size</div>
             <div style={this.props.visibilityState.menuVisibility[1] ? {"display": "flex"} : {"display": "none"}}>
+              <button onClick={()=>this.props.resize(60,70)}>60x70</button>
               <button onClick={()=>this.props.resize(50,60)}>50x60</button>
               <button onClick={()=>this.props.resize(40,50)}>40x50</button>
               <button style={borderRightRadius} onClick={()=>this.props.resize(30,40)}>30x40</button>
@@ -30,6 +31,7 @@ class NavigationPanel extends React.Component {
            <div className="tilesCont" onMouseOver={()=>this.props.showHideMenu(2)}  onMouseOut={()=>this.props.showHideMenu(2)}>
             <div className="tiles">FPS</div>
             <div style={this.props.visibilityState.menuVisibility[2] ? {"display": "flex"} : {"display": "none"}}>
+              <button onClick={()=>this.props.setDesirableFps(25)}>25 fps</button>
               <button onClick={()=>this.props.setDesirableFps(20)}>20 fps</button>
               <button onClick={()=>this.props.setDesirableFps(15)}>15 fps</button>
               <button onClick={()=>this.props.setDesirableFps(10)}>10 fps</button>
