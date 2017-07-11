@@ -9,7 +9,7 @@ var FacebookAuthModel = require('../models/facebookAuthModel.js');
 var GoogleAuthModel = require('../models/googleAuthModel.js');
 
 module.exports = function(app) {
-    mongoose.connect(process.env.MONGO_URI};
+    mongoose.connect(process.env.MONGO_URI);
     app.use(session({
         store: new MongoStore({mongooseConnection: mongoose.connection}),
         saveUninitialized: false, 
