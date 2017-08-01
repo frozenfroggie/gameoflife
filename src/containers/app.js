@@ -27,7 +27,7 @@ let PREV_DATE, PREV_SEC;
 class App extends React.Component {
   constructor(props) {
     super(props);
-    //binding crucial functions in contructor for better performance
+    //binding crucial functions in contructor to increase performance
     this.countCurrentFps = this.countCurrentFps.bind(this);
     this.start = this.start.bind(this);
     this.gameEngine = this.gameEngine.bind(this);
