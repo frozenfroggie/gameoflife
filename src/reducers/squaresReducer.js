@@ -6,7 +6,7 @@ function generateOrganismsInSquares(rows,cols) {    //only for initial squares s
       squares.push([]);
       squares[j].push( new Array(cols));
       for(var i=0; i <= cols; i++){
-         squares[j][i] = Math.random() > 0.4 ? {alive: false} || {alive: true};
+         squares[j][i] = Math.random() > 0.35 ? {alive: false} : {alive: true};
       }
     }
     return squares;
