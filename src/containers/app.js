@@ -13,7 +13,7 @@ import axios from "axios";
 
 //ACTIONS
 import { loadLocalStorage } from "../actions/loadingBoardsActions";
-import {  } from "../actions/loadingBoardsActions";
+import { loadBoardsFromDatabase } from "../actions/loadingBoardsActions";
 import { showAbout, showSavingPanel, changeErrorInputVisbility } from "../actions/visibilityActions";
 import { resizeCols, resizeRows } from "../actions/rowsColsActions";
 import { setSquaresInitial, clearSquares, setSquares } from "../actions/squaresActions";
@@ -271,7 +271,7 @@ const mapDispatchToProps = (dispatch) => {
       userLogin: (profile) => dispatch(userLogin(profile)),
       logout: () => dispatch(logout()),
       loadLocalStorage: () => dispatch(loadLocalStorage()),
-      loadBoardsFromDatabase: () => dispatch(()),
+      loadBoardsFromDatabase: () => dispatch(loadBoardsFromDatabase()),
       changeErrorInputVisbility: (bool) => dispatch(changeErrorInputVisbility(bool))
     };
 };
