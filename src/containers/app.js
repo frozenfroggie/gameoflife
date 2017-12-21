@@ -21,8 +21,7 @@ import { updateCurrentFps, resetRenderingPer2s, updateRenderingPer2s } from "../
 import { adminLogin, userLogin, logout } from "../actions/authActions";
 
 //GLOBAL VARIABLES
-let GAME_INTERVAL;
-let PREV_TIME;
+let GAME_INTERVAL, PREV_TIME;
 
 class App extends React.Component {
   constructor(props) {
@@ -129,7 +128,8 @@ class App extends React.Component {
   startInterval = () => {
     const fps = this.props.fpsState.desirableFps;
     const ms = 1000 / fps;
-    GAME_INTERVAL = setInterval(this.start,ms);
+    console.log(ms);
+    GAME_INTERVAL = setInterval(this.start, ms);
     PREV_TIME =  window.performance.now() / 1000;
   }
   pause = () => {
