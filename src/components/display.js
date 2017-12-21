@@ -5,13 +5,13 @@ const Display = function(props) {
     return (
     <div className="asideContainer"> 
       <div>
-        <div className="generationDiv">{props.generation}</div>
+        <div className="generationDiv">{ props.generation }</div>
       </div>
       <div>
-        <div className="currentFps">{props.currentFps}</div>
+        <div className="currentFps">{ props.currentFps > props.desirableFps ? "0" : props.currentFps }</div>
       </div>
       <div>
-        <div className="desirableFps">{props.desirableFps}</div>
+        <div className="desirableFps">{ props.desirableFps }</div>
       </div>
     </div>
      );

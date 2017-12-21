@@ -22,7 +22,7 @@ import { adminLogin, userLogin, logout } from "../actions/authActions";
 
 //GLOBAL VARIABLES
 let GAME_INTERVAL;
-let PREV_DATE, PREV_SEC;
+let PREV_TIME;
 
 class App extends React.Component {
   constructor(props) {
@@ -35,7 +35,6 @@ class App extends React.Component {
     axios.get('https://game-of-life-frozen.herokuapp.com/authentication/')
       .then( response => {
         response.data.adminAuth ? this.props.adminLogin(response.data.user) : response.data.userAuth ? this.props.userLogin(response.data.user) : "";
-        console.log(response.data.user);
       })
       .catch(error => error.response ? console.log(error.response) : "");
   }
@@ -124,14 +123,14 @@ class App extends React.Component {
     whoBorn.forEach((el)=>{
       oldSquares[el[0]][el[1]].alive = true;
     });
-    this.props.setSquares(oldSquares); //actually new squares.. (oldSquares after update)
-    this.countCurrentFps(); //update amount of renderings (increment)
+    this.props.setSquares(oldSquares);
+    this.countCurrentFps();
   }
   startInterval = () => {
     const fps = this.props.fpsState.desirableFps;
     const ms = 1000 / fps;
     GAME_INTERVAL = setInterval(this.start,ms);
-    PREV_SEC =  window.performance.now() / 1000;
+    PREV_TIME =  window.performance.now() / 1000;
   }
   pause = () => {
     clearInterval(GAME_INTERVAL);
@@ -163,12 +162,12 @@ class App extends React.Component {
     }
   };
   countCurrentFps = () => {
-    let currentSec =  window.performance.now() / 1000;
+    let currentTime =  window.performance.now() / 1000;
     this.props.updateRenderingPer2s();        //increment rendering per 2s value
-    if(Math.abs(currentSec - PREV_SEC) >= 2) { //how much time has elapsed since startInterval()
+    if(Math.abs(currentTime - PREV_TIME) >= 2) { //how much time has elapsed since startInterval()
       this.props.updateCurrentFps(this.props.fpsState.renderingPer2s/2);
       this.props.resetRenderingPer2s();
-      PREV_SEC = window.performance.now() / 1000;
+      PREV_TIME = window.performance.now() / 1000;
     }
   }
   logout = () => {
