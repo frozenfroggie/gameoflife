@@ -20,7 +20,7 @@ router.post("/save", function(req, res) {
   
 });
 
-router.put("/update/:id", function(req, res) {
+router.patch("/update/:id", function(req, res) {
   Squares.findByIdAndUpdate(req.params.id, {name: req.body.newName}, {new: true}, function(err, newData){
     if(err) {
       res.status(400).json({responseText: "server- Oops! Something went wrong."});

@@ -13,7 +13,7 @@ import axios from "axios";
 
 //ACTIONS
 import { loadLocalStorage } from "../actions/loadingBoardsActions";
-import { loadBoards } from "../actions/loadingBoardsActions";
+import {  } from "../actions/loadingBoardsActions";
 import { showAbout, showSavingPanel, changeErrorInputVisbility } from "../actions/visibilityActions";
 import { resizeCols, resizeRows } from "../actions/rowsColsActions";
 import { setSquaresInitial, clearSquares, setSquares } from "../actions/squaresActions";
@@ -27,19 +27,11 @@ let PREV_DATE, PREV_SEC;
 class App extends React.Component {
   constructor(props) {
     super(props);
-    //binding crucial functions in contructor to increase performance
-    this.countCurrentFps = this.countCurrentFps.bind(this);
-    this.start = this.start.bind(this);
-    this.gameEngine = this.gameEngine.bind(this);
-    this.amountOfNeighbours = this.amountOfNeighbours.bind(this);
-    this.isNeighbour = this.isNeighbour.bind(this);
-    this.wrap = this.wrap.bind(this);
-    this.getAlive = this.getAlive.bind(this);
   }
-  //loading saved boards from serve
-  componentDidMount = () => {
+  //loading saved boards from server
+  componentDidMount() {
     this.props.loadLocalStorage();
-    this.props.loadBoards();
+    this.props.loadBoardsFromDatabase();
     axios.get('https://game-of-life-frozen.herokuapp.com/authentication/')
       .then( response => {
         response.data.adminAuth ? this.props.adminLogin(response.data.user) : response.data.userAuth ? this.props.userLogin(response.data.user) : "";
@@ -51,13 +43,13 @@ class App extends React.Component {
 		clearInterval(GAME_INTERVAL);
 	}
 	// begin the game- choose who should live!
-  getAlive(row,col) { 
+  getAlive = (row,col) => { 
     let initialSquares = this.props.squaresState.squares;
     initialSquares[row][col].alive = !initialSquares[row][col].alive ? true : false;
     this.props.setSquaresInitial(initialSquares);
   }
   //borders wrapping
-  wrap(j,i) { 
+  wrap = (j,i) => { 
     let x = i, y = j;
     let rowMaxIdx = this.props.rowsColsState.rows;
     let colMaxIdx = this.props.rowsColsState.cols;
@@ -83,7 +75,7 @@ class App extends React.Component {
     }
     return [y,x];
   } 
-  isNeighbour(y,x,squares) {
+  isNeighbour = (y,x,squares) => {
     const arr = this.wrap(y,x);
     const wrappedY = arr[0];
     const wrappedX = arr[1];
@@ -91,7 +83,7 @@ class App extends React.Component {
       return true;
     }
   }
-  amountOfNeighbours(j,i,squares) {
+  amountOfNeighbours = (j,i,squares) => {
     let neighbours = 0;
     if(this.isNeighbour(j-1,i-1,squares)) neighbours++; //left top
     if(this.isNeighbour(j-1,i,squares)) neighbours++; //top
@@ -104,14 +96,14 @@ class App extends React.Component {
     return neighbours;
   }
   //func that checks every organism (in every square) that should be alive or not
-  gameEngine(squares) { 
+  gameEngine = squares => { 
     let whoDie = [];
     let whoBorn = [];
     squares.forEach((row,j)=>{
       row.forEach((cell,i)=>{
           const neighbours = this.amountOfNeighbours(j,i,squares);
           const isAlive = squares[j][i].alive;
-          if( (isAlive && neighbours > 3) || (isAlive && neighbours < 2) ) {
+          if( isAlive && (neighbours > 3 || neighbours < 2) ) {
             whoDie.push([j,i]);
           } else if(!isAlive && neighbours == 3) {
             whoBorn.push([j,i]);
@@ -121,7 +113,7 @@ class App extends React.Component {
     return [whoDie,whoBorn];
   }
   //let's start the game!
-  start() {
+  start = () => {
     const arr = this.gameEngine(this.props.squaresState.squares);
     const whoDie = arr[0];
     const whoBorn = arr[1];
@@ -139,8 +131,8 @@ class App extends React.Component {
     const fps = this.props.fpsState.desirableFps;
     const ms = 1000 / fps;
     GAME_INTERVAL = setInterval(this.start,ms);
-    PREV_DATE = new Date;
-    PREV_SEC = PREV_DATE.getSeconds();
+    //PREV_DATE = window.performance.now();
+    PREV_SEC =  window.performance.now();
   }
   pause = () => {
     clearInterval(GAME_INTERVAL);
@@ -171,15 +163,15 @@ class App extends React.Component {
       }
     }
   };
-  countCurrentFps() {
-    let currentDate = new Date();
-    let currentSec = currentDate.getSeconds();
+  countCurrentFps = () => {
+    //let currentDate = new Date();
+    let currentSec =  window.performance.now();
     this.props.updateRenderingPer2s();        //increment rendering per 2s value
     if(Math.abs(currentSec - PREV_SEC) >= 2) { //how much time has elapsed since startInterval()
       this.props.updateCurrentFps(this.props.fpsState.renderingPer2s/2);
       this.props.resetRenderingPer2s();
-      PREV_DATE = new Date();                  //change time reference
-      PREV_SEC = PREV_DATE.getSeconds();
+     // PREV_DATE = new Date();                  //change time reference
+      PREV_SEC = window.performance.now();
     }
   }
   logout = () => {
@@ -279,7 +271,7 @@ const mapDispatchToProps = (dispatch) => {
       userLogin: (profile) => dispatch(userLogin(profile)),
       logout: () => dispatch(logout()),
       loadLocalStorage: () => dispatch(loadLocalStorage()),
-      loadBoards: () => dispatch(loadBoards()),
+      loadBoardsFromDatabase: () => dispatch(()),
       changeErrorInputVisbility: (bool) => dispatch(changeErrorInputVisbility(bool))
     };
 };

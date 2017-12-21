@@ -20,7 +20,7 @@ class Structures extends React.Component {
     let data = {
       newName: editNameInput.value
     };
-    axios.put('https://game-of-life-frozen.herokuapp.com/crud/update/' + id, data)
+    axios.path('https://game-of-life-frozen.herokuapp.com/crud/update/' + id, data)
       .then( response => {
         console.log('updated successfully');
         this.props.resetStructures();
