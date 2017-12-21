@@ -9,6 +9,10 @@ import { setDesirableFps } from "../actions/fpsActions";
 import { showAbout, showHideMenu, showSavingPanel } from "../actions/visibilityActions";
 
 class NavigationPanel extends React.Component {
+    setDesirableFps = (fps) => {
+      this.props.pause();
+      this.props.setDesirableFps(fps);
+    }
     render() {
       const borderRightRadius = {"borderTopRightRadius": 5, "borderBottomRightRadius": 5};
       return (
@@ -30,11 +34,11 @@ class NavigationPanel extends React.Component {
            <div className="tilesCont" onMouseOver={()=>this.props.showHideMenu(2)}  onMouseOut={()=>this.props.showHideMenu(2)}>
             <div className="tiles">FPS</div>
             <div style={this.props.visibilityState.menuVisibility[2] ? {"display": "flex"} : {"display": "none"}}>
-              <button onClick={()=>this.props.setDesirableFps(25)}>25 fps</button>
-              <button onClick={()=>this.props.setDesirableFps(20)}>20 fps</button>
-              <button onClick={()=>this.props.setDesirableFps(15)}>15 fps</button>
-              <button onClick={()=>this.props.setDesirableFps(10)}>10 fps</button>
-              <button style={borderRightRadius} onClick={()=>this.props.setDesirableFps(5)}>5 fps</button>
+              <button onClick={()=>this.setDesirableFps(25)}>25 fps</button>
+              <button onClick={()=>this.setDesirableFps(20)}>20 fps</button>
+              <button onClick={()=>this.setDesirableFps(15)}>15 fps</button>
+              <button onClick={()=>this.setDesirableFps(10)}>10 fps</button>
+              <button style={borderRightRadius} onClick={()=>this.setDesirableFps(5)}>5 fps</button>
             </div>
           </div>
           <div className="tilesCont"><button onClick={()=>this.props.showSavingPanel(true)} className="tiles">Save</button></div>

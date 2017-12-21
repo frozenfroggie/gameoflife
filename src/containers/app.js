@@ -212,8 +212,8 @@ class App extends React.Component {
         
         <aside>
           <Display generation={this.props.generationState.generation} 
-                   currentFps = {this.props.fpsState.currentFps} 
-                   desirableFps = {this.props.fpsState.desirableFps} 
+                   currentFps={this.props.fpsState.currentFps} 
+                   desirableFps={this.props.fpsState.desirableFps} 
           />
         </aside>
         
