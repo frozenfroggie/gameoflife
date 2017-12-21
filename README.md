@@ -1,4 +1,2 @@
-Instructions:
-    1) In terminal paste "npm run mongo"
-    2) Open new terminal and paste into console "npm run dev"
-    3) Open "https://gameoflife-using-redux-frozenfroggie.c9users.io/"
+#Nightlife Web App
+It's a responsive fullstack web application using React, Redux, Mongo.db, Node.js, Passport lib. for authentication, Mocha for testing and newest css features as Grid system to being full responsive across different divices, also Canvas for animations.
