@@ -9,7 +9,7 @@ const fpsReducer = (state = {desirableFps: 10, currentFps: 0, renderingPer2s: 0}
         case "UPDATE_CURRENT_FPS":
             state = {
                 ...state,
-                currentFps: action.payload
+                currentFps: ~~action.payload
             };
             break;
         case "UPDATE_RENDERING_PER_2S":
