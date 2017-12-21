@@ -8,7 +8,7 @@ const Display = function(props) {
         <div className="generationDiv">{ props.generation }</div>
       </div>
       <div>
-        <div className="currentFps">{ props.currentFps > props.desirableFps ? "0" : props.currentFps }</div>
+        <div className="currentFps">{ props.currentFps > props.desirableFps ? props.desirableFps : props.currentFps }</div>
       </div>
       <div>
         <div className="desirableFps">{ props.desirableFps }</div>
