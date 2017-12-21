@@ -131,8 +131,7 @@ class App extends React.Component {
     const fps = this.props.fpsState.desirableFps;
     const ms = 1000 / fps;
     GAME_INTERVAL = setInterval(this.start,ms);
-    //PREV_DATE = window.performance.now();
-    PREV_SEC =  window.performance.now();
+    PREV_SEC =  window.performance.now() / 1000;
   }
   pause = () => {
     clearInterval(GAME_INTERVAL);
@@ -164,14 +163,12 @@ class App extends React.Component {
     }
   };
   countCurrentFps = () => {
-    //let currentDate = new Date();
-    let currentSec =  window.performance.now();
+    let currentSec =  window.performance.now() / 1000;
     this.props.updateRenderingPer2s();        //increment rendering per 2s value
     if(Math.abs(currentSec - PREV_SEC) >= 2) { //how much time has elapsed since startInterval()
       this.props.updateCurrentFps(this.props.fpsState.renderingPer2s/2);
       this.props.resetRenderingPer2s();
-     // PREV_DATE = new Date();                  //change time reference
-      PREV_SEC = window.performance.now();
+      PREV_SEC = window.performance.now() / 1000;
     }
   }
   logout = () => {
