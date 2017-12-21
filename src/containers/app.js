@@ -128,7 +128,7 @@ class App extends React.Component {
   startInterval = () => {
     const fps = this.props.fpsState.desirableFps;
     const ms = 1000 / fps;
-    console.log(ms);
+    console.log(fps);
     GAME_INTERVAL = setInterval(this.start, ms);
     PREV_TIME =  window.performance.now() / 1000;
   }

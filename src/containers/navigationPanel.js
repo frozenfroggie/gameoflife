@@ -11,7 +11,6 @@ import { showAbout, showHideMenu, showSavingPanel } from "../actions/visibilityA
 class NavigationPanel extends React.Component {
     setDesirableFps = (fps) => {
       this.props.pause();
-      console.log(fps);
       this.props.setDesirableFps(fps);
       setTimeout(this.props.start(), 500);
     }
