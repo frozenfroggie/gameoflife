@@ -12,7 +12,7 @@ class NavigationPanel extends React.Component {
     setDesirableFps = (fps) => {
       this.props.pause();
       this.props.setDesirableFps(fps);
-      window.setTimeout(()=>this.props.start(), 500);
+      window.setTimeout(()=>this.props.start(), 200);
     }
     render() {
       const borderRightRadius = {"borderTopRightRadius": 5, "borderBottomRightRadius": 5};
